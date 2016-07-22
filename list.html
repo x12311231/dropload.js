@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>list dome</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="css/dropload.css">
+	<link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+<div class="om-wrap">
+	<div class="om-list-box">
+		<div class="om-list om-list-img">
+			<img src="test.jpg" class="om-list-src">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list om-list-img">
+			<img src="test.jpg" class="om-list-src">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list om-list-img">
+			<img src="test.jpg" class="om-list-src">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list om-list-img">
+			<img src="test.jpg" class="om-list-src">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+		<div class="om-list">
+			<div class="om-list-title om-ellipsis">这里是列表的标题这里是列表的标题</div>
+			<div class="om-list-text om-ellipsis">这里是列表的文字这里是列表的文字哈哈哈</div>
+		</div>
+	</div>
+</div>
+	<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+	<script src="dropload.min.js"></script>
+	<script>
+		$(function(){
+			var $wrap = $('.om-wrap'),
+				$box = $('.om-list-box'),
+				html = $box.html(),
+				dropload = $wrap.dropload({
+					//上滑加载
+					loadDownFn : function(me){
+						setTimeout(function(){ //setTimeout只是让dome效果明显，实际使用可去掉
+							$box.append(html);	//这里是加载数据的函数
+	                    	me.resetload();	//每次加载完都需要重置
+	                    	//me.unbind(); 多次调用可用此方法先解绑
+						},1500)
+	                    
+	                },
+	                //下拉刷新
+	                loadUpFn : function(me){
+	                	setTimeout(function(){
+							$box.html(html);	//这里是加载数据的函数
+	                    	me.resetload();		//每次加载完都需要重置
+						},1500)
+	                }
+				});
+		})
+
+	</script>
+</body>
+</html>
